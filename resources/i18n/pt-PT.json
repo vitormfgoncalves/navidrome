@@ -156,7 +156,7 @@
             },
             "message": {
                 "duplicate_song": "Adicionar músicas duplicadas",
-                "song_exist": "Algumas destas músicas já existem na playlist. Quer adicionar as duplicadas ou ignorá-las?"
+                "song_exist": "Algumas destas músicas já existem na playlist. Pretende adiciona-las em duplicado ou ignorá-las?"
             }
         }
     },
@@ -171,7 +171,7 @@
             "username": "Utilizador",
             "password": "Password",
             "sign_in": "Entrar",
-            "sign_in_error": "Erro de autenticação. Tente novamente.",
+            "sign_in_error": "Erro de autenticação. Por favor, tente novamente.",
             "logout": "Sair"
         },
         "validation": {
@@ -230,7 +230,7 @@
             "loading": "A carregar",
             "not_found": "Não encontrado",
             "show": "%{name} #%{id}",
-            "empty": "Ainda não existe nenhuma %{name}",
+            "empty": "Ainda não existem %{name}",
             "invite": "Pretende criar uma?"
         },
         "input": {
