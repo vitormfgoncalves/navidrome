@@ -24,6 +24,7 @@ import {
   isWritable,
   useSelectedFields,
   useResourceRefresh,
+  NavButtons,
 } from '../common'
 import PlaylistListActions from './PlaylistListActions'
 import ChangePublicStatusButton from './ChangePublicStatusButton'
@@ -32,6 +33,7 @@ const PlaylistFilter = (props) => {
   const { permissions } = usePermissions()
   return (
     <Filter {...props} variant={'outlined'}>
+      <NavButtons alwaysOn/>
       <SearchInput source="q" alwaysOn />
       {permissions === 'admin' && (
         <ReferenceInput

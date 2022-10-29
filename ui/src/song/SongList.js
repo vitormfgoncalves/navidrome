@@ -24,6 +24,7 @@ import {
   RatingField,
   useResourceRefresh,
   ArtistLinkField,
+  NavButtons,
 } from '../common'
 import { useDispatch } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
@@ -64,6 +65,7 @@ const SongFilter = (props) => {
   const translate = useTranslate()
   return (
     <Filter {...props} variant={'outlined'}>
+      <NavButtons alwaysOn/>
       <SearchInput source="title" alwaysOn />
       <ReferenceInput
         label={translate('resources.song.fields.genre')}

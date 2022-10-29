@@ -9,10 +9,11 @@ import {
   SearchInput,
 } from 'react-admin'
 import { useMediaQuery } from '@material-ui/core'
-import { SimpleList, List } from '../common'
+import { SimpleList, List, NavButtons } from '../common'
 
 const PlayerFilter = (props) => (
   <Filter {...props} variant={'outlined'}>
+    <NavButtons alwaysOn/>
     <SearchInput source="name" alwaysOn />
   </Filter>
 )
