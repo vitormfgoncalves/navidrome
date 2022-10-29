@@ -27,6 +27,7 @@ import {
   RatingField,
   useSelectedFields,
   useResourceRefresh,
+  NavButtons,
 } from '../common'
 import config from '../config'
 import ArtistListActions from './ArtistListActions'
@@ -60,6 +61,7 @@ const ArtistFilter = (props) => {
   const translate = useTranslate()
   return (
     <Filter {...props} variant={'outlined'}>
+      <NavButtons alwaysOn />
       <SearchInput source="name" alwaysOn />
       <ReferenceInput
         label={translate('resources.artist.fields.genre')}
