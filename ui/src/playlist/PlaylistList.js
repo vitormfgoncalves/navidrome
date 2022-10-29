@@ -33,7 +33,7 @@ const PlaylistFilter = (props) => {
   const { permissions } = usePermissions()
   return (
     <Filter {...props} variant={'outlined'}>
-      <NavButtons alwaysOn/>
+      <NavButtons alwaysOn />
       <SearchInput source="q" alwaysOn />
       {permissions === 'admin' && (
         <ReferenceInput

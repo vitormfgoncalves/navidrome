@@ -77,7 +77,8 @@ const ArtistFilter = (props) => {
         <QuickFilter
           source="starred"
           label={<FavoriteIcon fontSize={'small'} />}
-          defaultValue={true} />
+          defaultValue={true}
+        />
       )}
     </Filter>
   )

@@ -13,7 +13,7 @@ import { SimpleList, List, NavButtons } from '../common'
 
 const PlayerFilter = (props) => (
   <Filter {...props} variant={'outlined'}>
-    <NavButtons alwaysOn/>
+    <NavButtons alwaysOn />
     <SearchInput source="name" alwaysOn />
   </Filter>
 )

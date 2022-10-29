@@ -65,7 +65,7 @@ const SongFilter = (props) => {
   const translate = useTranslate()
   return (
     <Filter {...props} variant={'outlined'}>
-      <NavButtons alwaysOn/>
+      <NavButtons alwaysOn />
       <SearchInput source="title" alwaysOn />
       <ReferenceInput
         label={translate('resources.song.fields.genre')}

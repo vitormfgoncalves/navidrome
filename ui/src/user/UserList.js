@@ -9,11 +9,11 @@ import {
 } from 'react-admin'
 import { useMediaQuery } from '@material-ui/core'
 import { List, DateField, NavButtons } from '../common'
-< alwaysOn/>
+;<alwaysOn />
 
 const UserFilter = (props) => (
   <Filter {...props} variant={'outlined'}>
-    <NavButtons alwaysOn/>
+    <NavButtons alwaysOn />
     <SearchInput source="name" alwaysOn />
   </Filter>
 )
