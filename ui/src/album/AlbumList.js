@@ -20,6 +20,7 @@ import {
   useAlbumsPerPage,
   useResourceRefresh,
   useSetToggleableFields,
+  NavButtons,
 } from '../common'
 import AlbumListActions from './AlbumListActions'
 import AlbumTableView from './AlbumTableView'
@@ -34,6 +35,7 @@ const AlbumFilter = (props) => {
   const translate = useTranslate()
   return (
     <Filter {...props} variant={'outlined'}>
+      <NavButtons alwaysOn />
       <SearchInput source="name" alwaysOn />
       <ReferenceInput
         label={translate('resources.album.fields.artist')}
