@@ -8,6 +8,7 @@ import { NotificationsToggle } from './NotificationsToggle'
 import { LastfmScrobbleToggle } from './LastfmScrobbleToggle'
 import { ListenBrainzScrobbleToggle } from './ListenBrainzScrobbleToggle'
 import config from '../config'
+import { NavButtons } from '../common'
 
 const useStyles = makeStyles({
   root: { marginTop: '1em' },
@@ -17,18 +18,29 @@ const Personal = () => {
   const translate = useTranslate()
   const classes = useStyles()
 
+  const navStyle = {
+    marginTop: '-15px',
+    marginLeft: '15px',
+    marginRight: '1em',
+  }
+
   return (
-    <Card className={classes.root}>
-      <Title title={'Navidrome - ' + translate('menu.personal.name')} />
-      <SimpleForm toolbar={null} variant={'outlined'}>
-        <SelectTheme />
-        <SelectLanguage />
-        <SelectDefaultView />
-        <NotificationsToggle />
-        {config.lastFMEnabled && <LastfmScrobbleToggle />}
-        {config.listenBrainzEnabled && <ListenBrainzScrobbleToggle />}
-      </SimpleForm>
-    </Card>
+    <>
+      <div style={navStyle}>
+        <NavButtons />
+      </div>
+      <Card className={classes.root}>
+        <Title title={'Navidrome - ' + translate('menu.personal.name')} />
+        <SimpleForm toolbar={null} variant={'outlined'}>
+          <SelectTheme />
+          <SelectLanguage />
+          <SelectDefaultView />
+          <NotificationsToggle />
+          {config.lastFMEnabled && <LastfmScrobbleToggle />}
+          {config.listenBrainzEnabled && <ListenBrainzScrobbleToggle />}
+        </SimpleForm>
+      </Card>
+    </>
   )
 }
 
