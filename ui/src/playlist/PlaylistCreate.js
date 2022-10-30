@@ -10,7 +10,7 @@ import {
   useNotify,
   useRedirect,
 } from 'react-admin'
-import { Title } from '../common'
+import { Title, NavButtons } from '../common'
 
 const PlaylistCreate = (props) => {
   const { basePath } = props
@@ -29,14 +29,25 @@ const PlaylistCreate = (props) => {
     refresh()
   }
 
+  const navStyle = {
+    marginTop: "-15px",
+    marginLeft: "15px",
+    marginRight: "1em",
+  };
+
   return (
-    <Create title={<Title subTitle={title} />} {...props} onSuccess={onSuccess}>
-      <SimpleForm redirect="list" variant={'outlined'}>
-        <TextInput source="name" validate={required()} />
-        <TextInput multiline source="comment" />
-        <BooleanInput source="public" initialValue={true} />
-      </SimpleForm>
-    </Create>
+    <>
+      <div style={navStyle}>
+        <NavButtons />
+      </div>
+      <Create title={<Title subTitle={title} />} {...props} onSuccess={onSuccess}>
+        <SimpleForm redirect="list" variant={'outlined'}>
+          <TextInput source="name" validate={required()} />
+          <TextInput multiline source="comment" />
+          <BooleanInput source="public" initialValue={true} />
+        </SimpleForm>
+      </Create>
+    </>
   )
 }
 

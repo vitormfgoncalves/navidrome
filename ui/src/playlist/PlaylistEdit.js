@@ -13,7 +13,7 @@ import {
   ReferenceInput,
   SelectInput,
 } from 'react-admin'
-import { isWritable, Title } from '../common'
+import { isWritable, Title, NavButtons } from '../common'
 
 const SyncFragment = ({ formData, variant, ...rest }) => {
   return (
@@ -33,30 +33,42 @@ const PlaylistTitle = ({ record }) => {
 const PlaylistEditForm = (props) => {
   const { record } = props
   const { permissions } = usePermissions()
+
+  const navStyle = {
+    marginTop: "-15px",
+    marginLeft: "15px",
+    marginRight: "1em",
+  };
+
   return (
-    <SimpleForm redirect="list" variant={'outlined'} {...props}>
-      <TextInput source="name" validate={required()} />
-      <TextInput multiline source="comment" />
-      {permissions === 'admin' ? (
-        <ReferenceInput
-          source="ownerId"
-          reference="user"
-          perPage={0}
-          sort={{ field: 'name', order: 'ASC' }}
-        >
-          <SelectInput
-            label={'resources.playlist.fields.ownerName'}
-            optionText="userName"
-          />
-        </ReferenceInput>
-      ) : (
-        <TextField source="ownerName" />
-      )}
-      <BooleanInput source="public" disabled={!isWritable(record.ownerId)} />
-      <FormDataConsumer>
-        {(formDataProps) => <SyncFragment {...formDataProps} />}
-      </FormDataConsumer>
-    </SimpleForm>
+    <>
+      <div style={navStyle}>
+        <NavButtons />
+      </div>
+      <SimpleForm redirect="list" variant={'outlined'} {...props}>
+        <TextInput source="name" validate={required()} />
+        <TextInput multiline source="comment" />
+        {permissions === 'admin' ? (
+          <ReferenceInput
+            source="ownerId"
+            reference="user"
+            perPage={0}
+            sort={{ field: 'name', order: 'ASC' }}
+          >
+            <SelectInput
+              label={'resources.playlist.fields.ownerName'}
+              optionText="userName"
+            />
+          </ReferenceInput>
+        ) : (
+          <TextField source="ownerName" />
+        )}
+        <BooleanInput source="public" disabled={!isWritable(record.ownerId)} />
+        <FormDataConsumer>
+          {(formDataProps) => <SyncFragment {...formDataProps} />}
+        </FormDataConsumer>
+      </SimpleForm>
+    </>
   )
 }
 

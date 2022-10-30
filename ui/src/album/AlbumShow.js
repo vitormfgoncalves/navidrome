@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import AlbumSongs from './AlbumSongs'
 import AlbumDetails from './AlbumDetails'
 import AlbumActions from './AlbumActions'
+import { NavButtons } from '../common'
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -26,8 +27,17 @@ const AlbumShowLayout = (props) => {
   const { record } = context
   const classes = useStyles()
 
+  const navStyle = {
+    marginTop: "-15px",
+    marginLeft: "15px",
+    marginRight: "1em",
+  };
+
   return (
     <>
+      <div style={navStyle}>
+        <NavButtons />
+      </div>
       {record && <AlbumDetails {...context} />}
       {record && (
         <ReferenceManyField

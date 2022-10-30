@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import PlaylistDetails from './PlaylistDetails'
 import PlaylistSongs from './PlaylistSongs'
 import PlaylistActions from './PlaylistActions'
-import { Title, canChangeTracks } from '../common'
+import { Title, canChangeTracks, NavButtons } from '../common'
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -28,8 +28,17 @@ const PlaylistShowLayout = (props) => {
   const { record } = context
   const classes = useStyles()
 
+  const navStyle = {
+    marginTop: "-15px",
+    marginLeft: "15px",
+    marginRight: "1em",
+  };
+
   return (
     <>
+      <div style={navStyle}>
+        <NavButtons />
+      </div>
       {record && <PlaylistDetails {...context} />}
       {record && (
         <ReferenceManyField

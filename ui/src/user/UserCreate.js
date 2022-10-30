@@ -12,7 +12,7 @@ import {
   useNotify,
   useRedirect,
 } from 'react-admin'
-import { Title } from '../common'
+import { Title, NavButtons } from '../common'
 
 const UserCreate = (props) => {
   const translate = useTranslate()
@@ -48,16 +48,27 @@ const UserCreate = (props) => {
     [mutate, notify, redirect]
   )
 
+  const navStyle = {
+    marginTop: "-15px",
+    marginLeft: "15px",
+    marginRight: "1em",
+  };
+
   return (
-    <Create title={<Title subTitle={title} />} {...props}>
-      <SimpleForm save={save} variant={'outlined'}>
-        <TextInput source="userName" validate={[required()]} />
-        <TextInput source="name" validate={[required()]} />
-        <TextInput source="email" validate={[email()]} />
-        <PasswordInput source="password" validate={[required()]} />
-        <BooleanInput source="isAdmin" defaultValue={false} />
-      </SimpleForm>
-    </Create>
+    <>
+      <div style={navStyle}>
+        <NavButtons />
+      </div>
+      <Create title={<Title subTitle={title} />} {...props}>
+        <SimpleForm save={save} variant={'outlined'}>
+          <TextInput source="userName" validate={[required()]} />
+          <TextInput source="name" validate={[required()]} />
+          <TextInput source="email" validate={[email()]} />
+          <PasswordInput source="password" validate={[required()]} />
+          <BooleanInput source="isAdmin" defaultValue={false} />
+        </SimpleForm>
+      </Create>
+    </>
   )
 }
 
