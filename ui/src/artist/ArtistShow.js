@@ -11,6 +11,7 @@ import subsonic from '../subsonic'
 import AlbumGridView from '../album/AlbumGridView'
 import MobileArtistDetails from './MobileArtistDetails'
 import DesktopArtistDetails from './DesktopArtistDetails'
+import { NavButtons } from '../common'
 
 const ArtistDetails = (props) => {
   const record = useRecordContext(props)
@@ -53,8 +54,17 @@ const AlbumShowLayout = (props) => {
   const showContext = useShowContext(props)
   const record = useRecordContext()
 
+  const navStyle = {
+    marginTop: '-15px',
+    marginLeft: '15px',
+    marginRight: '1em',
+  }
+
   return (
     <>
+      <div style={navStyle}>
+        <NavButtons />
+      </div>
       {record && <ArtistDetails />}
       {record && (
         <ReferenceManyField
