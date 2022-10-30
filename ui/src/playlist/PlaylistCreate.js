@@ -30,17 +30,21 @@ const PlaylistCreate = (props) => {
   }
 
   const navStyle = {
-    marginTop: "-15px",
-    marginLeft: "15px",
-    marginRight: "1em",
-  };
+    marginTop: '-15px',
+    marginLeft: '15px',
+    marginRight: '1em',
+  }
 
   return (
     <>
       <div style={navStyle}>
         <NavButtons />
       </div>
-      <Create title={<Title subTitle={title} />} {...props} onSuccess={onSuccess}>
+      <Create
+        title={<Title subTitle={title} />}
+        {...props}
+        onSuccess={onSuccess}
+      >
         <SimpleForm redirect="list" variant={'outlined'}>
           <TextInput source="name" validate={required()} />
           <TextInput multiline source="comment" />

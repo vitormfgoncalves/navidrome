@@ -5,10 +5,10 @@ import { SimpleList, List, NavButtons } from '../common'
 import config from '../config'
 
 const navStyle = {
-  marginTop: "-15px",
-  marginLeft: "15px",
-  marginRight: "1em",
-};
+  marginTop: '-15px',
+  marginLeft: '15px',
+  marginRight: '1em',
+}
 
 const TranscodingList = (props) => {
   const isXsmall = useMediaQuery((theme) => theme.breakpoints.down('xs'))

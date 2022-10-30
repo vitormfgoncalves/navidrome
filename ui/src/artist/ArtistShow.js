@@ -55,10 +55,10 @@ const AlbumShowLayout = (props) => {
   const record = useRecordContext()
 
   const navStyle = {
-    marginTop: "-15px",
-    marginLeft: "15px",
-    marginRight: "1em",
-  };
+    marginTop: '-15px',
+    marginLeft: '15px',
+    marginRight: '1em',
+  }
 
   return (
     <>
