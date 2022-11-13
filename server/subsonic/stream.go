@@ -44,7 +44,7 @@ func (c *StreamController) Stream(w http.ResponseWriter, r *http.Request) (*resp
 	// Make sure the stream will be closed at the end, to avoid leakage
 	defer func() {
 		if err := stream.Close(); err != nil && log.CurrentLevel() >= log.LevelDebug {
-			log.Error("Error closing stream", "id", id, "file", stream.Name(), err)
+			log.Error(r.Context(), "Error closing stream", "id", id, "file", stream.Name(), err)
 		}
 	}()
 
@@ -68,10 +68,13 @@ func (c *StreamController) Stream(w http.ResponseWriter, r *http.Request) (*resp
 		if r.Method == "HEAD" {
 			go func() { _, _ = io.Copy(io.Discard, stream) }()
 		} else {
-			if c, err := io.Copy(w, stream); err != nil {
-				log.Error(ctx, "Error sending transcoded file", "id", id, err)
-			} else {
-				log.Trace(ctx, "Success sending transcode file", "id", id, "size", c)
+			c, err := io.Copy(w, stream)
+			if log.CurrentLevel() >= log.LevelDebug {
+				if err != nil {
+					log.Error(ctx, "Error sending transcoded file", "id", id, err)
+				} else {
+					log.Trace(ctx, "Success sending transcode file", "id", id, "size", c)
+				}
 			}
 		}
 	}
